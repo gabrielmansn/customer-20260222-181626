@@ -1,0 +1,137 @@
+name: Generate site with Claude AI
+
+on:
+  repository_dispatch:
+    types: [generate-site]
+  workflow_dispatch:
+    inputs:
+      customer_repo:
+        description: 'Customer repo name under gabrielmansn/ (e.g. myhair-20250101-120000)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout site-template (for prompts and scripts)
+        uses: actions/checkout@v4
+
+      - name: Resolve customer repo name
+        run: |
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            echo "CUSTOMER_REPO=${{ github.event.client_payload.customer_repo }}" >> $GITHUB_ENV
+          else
+            echo "CUSTOMER_REPO=${{ github.event.inputs.customer_repo }}" >> $GITHUB_ENV
+          fi
+          echo "Customer repo: $CUSTOMER_REPO"
+
+      - name: Fetch order.json from customer repo
+        env:
+          GH_PAT: ${{ secrets.GH_PAT2 }}
+        run: |
+          echo "Fetching order.json from gabrielmansn/${CUSTOMER_REPO}..."
+          STATUS="000"
+          for i in 1 2 3 4 5; do
+            STATUS=$(curl -sS -o order.json -w "%{http_code}" \
+              -H "Authorization: Bearer $GH_PAT" \
+              -H "Accept: application/vnd.github.raw+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/gabrielmansn/${CUSTOMER_REPO}/contents/data/order.json")
+            echo "Attempt $i: HTTP $STATUS"
+            [ "$STATUS" = "200" ] && break
+            sleep 10
+          done
+
+          if [ "$STATUS" != "200" ]; then
+            echo "ERROR: Could not fetch order.json (HTTP $STATUS)"
+            cat order.json
+            exit 1
+          fi
+
+          echo "=== order.json ==="
+          cat order.json
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Generate site with Claude AI
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/generate_site.py
+
+      - name: List generated files
+        run: |
+          echo "=== Generated files ==="
+          ls -lh index.html style.css main.js 2>/dev/null || true
+          [ -d images ] && ls images/ || true
+
+      - name: Push generated files to customer repo and create PR
+        env:
+          GH_PAT: ${{ secrets.GH_PAT2 }}
+        run: |
+          BRANCH="generated-$(date +'%s')"
+
+          git clone "https://x-access-token:${GH_PAT}@github.com/gabrielmansn/${CUSTOMER_REPO}.git" customer_repo
+          cd customer_repo
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+
+          # Copy generated files from site-template workspace
+          for f in index.html style.css main.js; do
+            if [ -f "../$f" ]; then
+              cp "../$f" .
+              echo "Copied: $f"
+            fi
+          done
+
+          # Copy images directory if generated
+          if [ -d "../images" ]; then
+            cp -r "../images" .
+            echo "Copied: images/"
+          fi
+
+          git add -A
+          git status
+          git diff --cached --stat
+
+          if git diff --cached --quiet; then
+            echo "ERROR: No files generated to commit"
+            exit 1
+          fi
+
+          git commit -m "Automaattisesti generoitu asiakassivu (Claude AI)"
+          git push --set-upstream origin "$BRANCH"
+
+          # Create PR via GitHub API
+          PR_RESP=$(curl -sS -w "\n%{http_code}" \
+            -X POST \
+            -H "Authorization: Bearer $GH_PAT" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/gabrielmansn/${CUSTOMER_REPO}/pulls" \
+            -d "{\"title\":\"Generoitu asiakassivu\",\"body\":\"Automaattisesti generoitu Claude AI:lla Formspree-tilauksen perusteella.\n\nTarkista sivusto ja hyväksy PR kun olet tyytyväinen.\",\"head\":\"$BRANCH\",\"base\":\"main\"}")
+
+          HTTP=$(echo "$PR_RESP" | tail -1)
+          PR_URL=$(echo "$PR_RESP" | head -n -1 | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('html_url','N/A'))" 2>/dev/null || echo "N/A")
+          echo "PR creation HTTP: $HTTP"
+          echo "PR URL: $PR_URL"
+
+          if [ "$HTTP" -ge 200 ] && [ "$HTTP" -lt 300 ]; then
+            echo "PR created: $PR_URL"
+          else
+            echo "WARNING: PR creation returned HTTP $HTTP"
+            echo "$PR_RESP" | head -n -1
+          fi
