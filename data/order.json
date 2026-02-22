@@ -1,16 +1,4 @@
 {
-  "yritys_nimi": "Esimerkki Kampaamo",
-  "toimiala": "kampaamo",
-  "osoite": "Esimerkkikatu 1, 00100 Helsinki",
-  "puhelin": "+358 40 123 4567",
-  "email": "info@esimerkki.fi",
-  "tyyli": "moderni",
-  "fontti": "Inter",
-  "variteema": "tummansininen ja valkoinen",
-  "palvelut_kuvaus": "Hiustenleikkaus, värjäys, permanentti",
-  "hinnasto": "Leikkaus 35–55€, Värjäys 80–150€",
-  "aukiolo": "Ma–Pe 9–18, La 10–16",
-  "instagram": "@esimerkki.kampaamo",
-  "facebook_nimi": "Esimerkki Kampaamo",
-  "lisatoiveet": "Moderni ja selkeä ilme, ajanvaraus-CTA näkyvästi"
+  "permanenttipaketti": "hartiapituus, permanentti + leikkaus, alkaen",
+  "hinta_46,00_€_/h<br/><b>aukiolo</b>": "Ma-pe 9-17<br/><b>instagram</b>: https://www.instagram.com/kampaamosilkline/<br/><b>facebook</b>: <br/><b>vapaat_toiveet</b>: Haluan, että nettisivut ovat modernit, helposti luettavat ja elegantit. Haluan, että hinnasto on omalla sivullansa. Haluan pieniä animaatioita siirtymiin, ei kuitenkaan mitään suurta.<br/><b>paketti</b>: 12kk<br/><b>toiveet</b>:"
 }
