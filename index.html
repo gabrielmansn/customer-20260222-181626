@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampaamo Silkline | Kampaamo</title>
+    <meta name="description" content="Kampaamo Silkline - Laadukkaat kampaamopalvelut ammattitaidolla. Permanentit, leikkaukset ja värjäykset. Varaa aikasi jo tänään!">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kampaamo Silkline | Kampaamo">
+    <meta property="og:description" content="Laadukkaat kampaamopalvelut ammattitaidolla. Permanentit, leikkaukset ja värjäykset.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fi_FI">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HairSalon",
+        "name": "Kampaamo Silkline",
+        "openingHours": "Mo-Fr 09:00-17:00",
+        "sameAs": [
+            "https://www.instagram.com/kampaamosilkline/"
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <span class="logo-text">Silkline</span>
+            </a>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#esittely" class="nav__link">Meistä</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#palvelut" class="nav__link">Palvelut</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="hinnasto.html" class="nav__link">Hinnasto</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#yhteystiedot" class="nav__link nav__link--cta">Ota yhteyttä</a>
+                    </li>
+                </ul>
+                
+                <button class="nav__close" id="nav-close" aria-label="Sulje valikko">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <button class="nav__toggle" id="nav-toggle" aria-label="Avaa valikko">
+                <span class="hamburger"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero__bg"></div>
+            <div class="hero__content container">
+                <span class="hero__tagline fade-in">Tervetuloa</span>
+                <h1 class="hero__title fade-in fade-in--delay-1">Kampaamo Silkline</h1>
+                <p class="hero__description fade-in fade-in--delay-2">Ammattimaista hiustenhoitoa ja -muotoilua rennossa ilmapiirissä. Anna meidän tuoda esiin parhaat puolesi.</p>
+                <div class="hero__buttons fade-in fade-in--delay-3">
+                    <a href="#yhteystiedot" class="btn btn--primary">Varaa aika</a>
+                    <a href="#palvelut" class="btn btn--outline">Tutustu palveluihin</a>
+                </div>
+            </div>
+            <div class="hero__scroll">
+                <span>Vieritä alas</span>
+                <div class="scroll-indicator"></div>
+            </div>
+        </section>
+
+        <!-- Trust Badges -->
+        <section class="trust-badges">
+            <div class="container">
+                <div class="badges-grid">
+                    <div class="badge fade-up">
+                        <div class="badge__icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="badge__title">Ammattitaito</h3>
+                        <p class="badge__text">Kokeneet kampaajat palveluksessasi</p>
+                    </div>
+                    <div class="badge fade-up fade-up--delay-1">
+                        <div class="badge__icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                        </div>
+                        <h3 class="badge__title">Joustava aikataulu</h3>
+                        <p class="badge__text">Ma–Pe 9–17</p>
+                    </div>
+                    <div class="badge fade-up fade-up--delay-2">
+                        <div class="badge__icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </div>
+                        <h3 class="badge__title">Laadukasta hoitoa</h3>
+                        <p class="badge__text">Jokainen asiakas on meille tärkeä</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="esittely">
+            <div class="container">
+                <div class="about__grid">
+                    <div class="about__content fade-up">
+                        <span class="section-tag">Meistä</span>
+                        <h2 class="section-title">Silkkisen pehmeät tulokset</h2>
+                        <p class="about__text">
+                            Kampaamo Silkline tarjoaa laadukkaita kampaamopalveluja viihtyisässä ympäristössä. 
+                            Uskomme, että jokainen ansaitsee hiukset, jotka tuntuvat ja näyttävät upeilta.
+                        </p>
+                        <p class="about__text">
+                            Käytämme vain laadukkaita tuotteita ja pysymme ajan hermolla uusimpien trendien 
+                            ja tekniikoiden kanssa. Tule käymään – lupaamme, että lähdet hymy huulilla!
+                        </p>
+                        <ul class="about__features">
+                            <li class="feature-item">
+                                <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Henkilökohtaista palvelua</span>
+                            </li>
+                            <li class="feature-item">
+                                <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Laadukkaat tuotteet</span>
+                            </li>
+                            <li class="feature-item">
+                                <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                                <span>Rento ilmapiiri</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="about__image-wrapper fade-up fade-up--delay-1">
+                        <div class="about__image">
+                            <div class="image-placeholder">
+                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                                    <polyline points="21 15 16 10 5 21"/>
+                                </svg>
+                                <span>Kuva kampaamosta</span>
+                            </div>
+                        </div>
+                        <div class="about__accent"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="palvelut">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Palvelumme</span>
+                    <h2 class="section-title">Mitä tarjoamme</h2>
+                    <p class="section-description">Laaja valikoima kampaamopalveluja kaikille hiustyypeille</p>
+                </div>
+                
+                <div class="services__grid">
+                    <article class="service-card fade-up">
+                        <div class="service-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="6" cy="6" r="3"/>
+                                <path d="M8.12 8.12L12 12"/>
+                                <circle cx="18" cy="18" r="3"/>
+                                <path d="M15.88 15.88L12 12"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Hiustenleikkaus</h3>
+                        <p class="service-card__text">Ammattitaitoinen leikkaus toiveidesi mukaan. Neuvomme myös sopivasta tyylistä.</p>
+                        <span class="service-card__price">Katso hinnasto</span>
+                    </article>
+                    
+                    <article class="service-card fade-up fade-up--delay-1">
+                        <div class="service-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Värjäykset</h3>
+                        <p class="service-card__text">Yksiväriset, raidat, balayage – löydämme sinulle sopivan sävyn.</p>
+                        <span class="service-card__price">Katso hinnasto</span>
+                    </article>
+                    
+                    <article class="service-card service-card--featured fade-up fade-up--delay-2">
+                        <div class="service-card__badge">Suosittu</div>
+                        <div class="service-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
+                                <polyline points="7.5 19.79 7.5 14.6 3 12"/>
+                                <polyline points="21 12 16.5 14.6 16.5 19.79"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Permanentti</h3>
+                        <p class="service-card__text">Hartiapituus, permanentti + leikkaus – kauniit kiharat tai laineet pitkäksi aikaa.</p>
+                        <span class="service-card__price">alk. 46€/h</span>
+                    </article>
+                    
+                    <article class="service-card fade-up fade-up--delay-3">
+                        <div class="service-card__icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
+                                <line x1="16" y1="8" x2="2" y2="22"/>
+                                <line x1="17.5" y1="15" x2="9" y2="15"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-card__title">Kampaukset</h3>
+                        <p class="service-card__text">Juhla- ja arkikampaukset. Täydellinen look häihin tai muuhun juhlaan.</p>
+                        <span class="service-card__price">Katso hinnasto</span>
+                    </article>
+                </div>
+                
+                <div class="services__cta">
+                    <a href="hinnasto.html" class="btn btn--secondary">Katso koko hinnasto</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram Section -->
+        <section class="instagram">
+            <div class="container">
+                <div class="instagram__content">
+                    <span class="section-tag">Seuraa meitä</span>
+                    <h2 class="section-title">@kampaamosilkline</h2>
+                    <p class="instagram__text">Näe uusimmat työt ja inspiraatiot Instagramissa!</p>
+                    <a href="https://www.instagram.com/kampaamosilkline/" target="_blank" rel="noopener noreferrer" class="btn btn--instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                        Seuraa Instagramissa
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="yhteystiedot">
+            <div class="container">
+                <div class="contact__grid">
+                    <div class="contact__info fade-up">
+                        <span class="section-tag">Yhteystiedot</span>
+                        <h2 class="section-title">Ota yhteyttä</h2>
+                        <p class="contact__text">Varaa aikasi tai kysy lisätietoja – vastaamme mielellämme!</p>
+                        
+                        <div class="contact__details">
+                            <div class="contact-item">
+                                <div class="contact-item__icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12,6 12,12 16,14"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-item__content">
+                                    <h4>Aukioloajat</h4>
+                                    <p>Ma–Pe 9:00–17:00</p>
+                                    <p class="text-muted">La–Su suljettu</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-item__icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-item__content">
+                                    <h4>Sosiaalinen media</h4>
+                                    <a href="https://www.instagram.com/kampaamosilkline/" target="_blank" rel="noopener noreferrer">@kampaamosilkline</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact__form-wrapper fade-up fade-up--delay-1">
+                        <form class="contact-form" action="#" method="POST" id="contact-form">
+                            <h3 class="contact-form__title">Lähetä viesti</h3>
+                            
+                            <div class="form-group">
+                                <label for="name" class="form-label">Nimi *</label>
+                                <input type="text" id="name" name="name" class="form-input" required autocomplete="name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="form-label">Sähköposti *</label>
+                                <input type="email" id="email" name="email" class="form-input" required autocomplete="email">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Puhelin</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" autocomplete="tel">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">Viesti *</label>
+                                <textarea id="message" name="message" class="form-textarea" rows="4" required placeholder="Kerro mitä palvelua tarvitset ja toivomasi ajankohta..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn--primary btn--full">
+                                <span>Lähetä viesti</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="22" y1="2" x2="11" y2="13"/>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <span class="footer__logo">Silkline</span>
+                    <p class="footer__tagline">Ammattimaista hiustenhoitoa</p>
+                </div>
+                
+                <div class="footer__links">
+                    <a href="#esittely">Meistä</a>
+                    <a href="#palvelut">Palvelut</a>
+                    <a href="hinnasto.html">Hinnasto</a>
+                    <a href="#yhteystiedot">Yhteystiedot</a>
+                </div>
+                
+                <div class="footer__social">
+                    <a href="https://www.instagram.com/kampaamosilkline/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2025 Kampaamo Silkline. Kaikki oikeudet pidätetään.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
